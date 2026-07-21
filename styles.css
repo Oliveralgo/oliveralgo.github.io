@@ -1,0 +1,74 @@
+/* ============================================
+   ESTILOS DE NUESTRA PÁGINA (CSS)
+   El CSS se encarga de los colores, tamaños y
+   la forma en que se ve todo.
+   ============================================ */
+
+/* Estilos generales para toda la página */
+body {
+  font-family: Arial, Helvetica, sans-serif; /* Tipo de letra */
+  margin: 0;                                  /* Sin márgenes */
+  background-color: #f4f4f9;                  /* Color de fondo */
+  color: #333;                                /* Color del texto */
+  text-align: center;                         /* Texto centrado */
+}
+
+/* Encabezado con color de fondo */
+header {
+  background-color: #6c5ce7;
+  color: white;
+  padding: 40px 20px;
+}
+
+header h1 {
+  margin: 0;
+  font-size: 2.5rem;
+}
+
+/* La tarjeta blanca del centro */
+.tarjeta {
+  background-color: white;
+  max-width: 500px;          /* Ancho máximo */
+  margin: 30px auto;         /* Centrada horizontalmente */
+  padding: 25px;
+  border-radius: 12px;       /* Bordes redondeados */
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); /* Sombra suave */
+}
+
+/* Lista alineada a la izquierda dentro de la tarjeta */
+.tarjeta ul {
+  text-align: left;
+  line-height: 1.8;
+}
+
+/* El botón */
+button {
+  background-color: #6c5ce7;
+  color: white;
+  border: none;
+  padding: 12px 24px;
+  font-size: 1rem;
+  border-radius: 8px;
+  cursor: pointer;           /* La manito al pasar el mouse */
+  transition: background-color 0.2s;
+}
+
+/* Efecto al pasar el mouse por encima del botón */
+button:hover {
+  background-color: #5a4bd1;
+}
+
+/* El mensaje que muestra JavaScript */
+#mensaje {
+  margin-top: 20px;
+  font-weight: bold;
+  color: #6c5ce7;
+  min-height: 24px;
+}
+
+/* Pie de página */
+footer {
+  margin-top: 40px;
+  padding: 20px;
+  color: #888;
+}
