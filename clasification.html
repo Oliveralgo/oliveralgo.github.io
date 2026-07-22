@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Clasificación de Ajedrez - 50 Jugadores</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f9;
+            margin: 20px;
+            padding: 0;
+            color: #333;
+        }
+
+        h1 {
+            text-align: center;
+            color: #2c3e50;
+        }
+
+        .tabla-contenedor {
+            max-width: 900px;
+            max-height: 80vh; /* Permite scroll vertical si la lista es muy larga */
+            overflow-y: auto;
+            margin: 20px auto;
+            background-color: #ffffff;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+            border-radius: 8px;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            text-align: left;
+        }
+
+        thead {
+            background-color: #34495e;
+            color: #ffffff;
+            position: sticky;
+            top: 0; /* Mantiene la cabecera fija al hacer scroll */
+        }
+
+        th, td {
+            padding: 10px 15px;
+        }
+
+        th {
+            font-weight: bold;
+            text-transform: uppercase;
+            font-size: 0.85em;
+        }
+
+        tbody tr {
+            border-bottom: 1px solid #dddddd;
+        }
+
+        tbody tr:nth-of-type(even) {
+            background-color: #f9f9f9;
+        }
+
+        tbody tr:hover {
+            background-color: #eef2f5;
+        }
+
+        .posicion {
+            font-weight: bold;
+            text-align: center;
+            width: 40px;
+        }
+
+        .elo {
+            font-weight: bold;
+            color: #27ae60;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>Clasificación General del Torneo</h1>
+
+    <div class="tabla-contenedor">
+        <table>
+            <thead>
+                <tr>
+                    <th class="posicion">#</th>
+                    <th>Nombre</th>
+                    <th>Apellido</th>
+                    <th>Localidad</th>
+                    <th>Edad</th>
+                    <th>ELO</th>
+                </tr>
+            </thead>
+            <tbody>
+                <!-- Jugadores del 1 al 50 -->
+                <tr><td class="posicion">1</td><td>Magnus</td><td>Carlsen</td><td>Tønsberg</td><td>33</td><td class="elo">2832</td></tr>
+                <tr><td class="posicion">2</td><td>Hikaru</td><td>Nakamura</td><td>Kioto</td><td>36</td><td class="elo">2802</td></tr>
+                <tr><td class="posicion">3</td><td>Fabiano</td><td>Caruana</td><td>Miami</td><td>31</td><td class="elo">2795</td></tr>
+                <tr><td class="posicion">4</td><td>Arjun</td><td>Erigaisi</td><td>Telangana</td><td>20</td><td class="elo">2778</td></tr>
+                <tr><td class="posicion">5</td><td>Nodirbek</td><td>Abdusattorov</td><td>Taskent</td><td>19</td><td class="elo">2777</td></tr>
+                <tr><td class="posicion">6</td><td>Gukesh</td><td>Dommaraju</td><td>Chennai</td><td>18</td><td class="elo">2766</td></tr>
+                <tr><td class="posicion">7</td><td>Alireza</td><td>Firouzja</td><td>Chartres</td><td>21</td><td class="elo">2751</td></tr>
+                <tr><td class="posicion">8</td><td>Wei</td><td>Yi</td><td>Yancheng</td><td>25</td><td class="elo">2750</td></tr>
+                <tr><td class="posicion">9</td><td>Ian</td><td>Nepomniachtchi</td><td>Bрянск</td><td>33</td><td class="elo">2748</td></tr>
+                <tr><td class="posicion">10</td><td>Praggnanandhaa</td><td>Rameshbabu</td><td>Chennai</td><td>18</td><td class="elo">2747</td></tr>
+                <tr><td class="posicion">11</td><td>Vincent</td><td>Keymer</td><td>Mainz</td><td>19</td><td class="elo">2738</td></tr>
+                <tr><td class="posicion">12</td><td>Anish</td><td>Giri</td><td>Sankt-Peterburg</td><td>29</td><td class="elo">2735</td></tr>
+                <tr><td class="posicion">13</td><td>Shakhriyar</td><td>Mamedyarov</td><td>Sumqayıt</td><td>39</td><td class="elo">2734</td></tr>
+                <tr><td class="posicion">14</td><td>Liren</td><td>Ding</td><td>Wenzhou</td><td>31</td><td class="elo">2730</td></tr>
+                <tr><td class="posicion">15</td><td>Maxime</td><td>Vachier-Lagrave</td><td>Nogent-sur-Marne</td><td>33</td><td class="elo">2721</td></tr>
+                <tr><td class="posicion">16</td><td>Levon</td><td>Aronian</td><td>Ereván</td><td>41</td><td class="elo">2720</td></tr>
+                <tr><td class="posicion">17</td><td>Yu</td><td>Yangyi</td><td>Huanggang</td><td>30</td><td class="elo">2715</td></tr>
+                <tr><td class="posicion">18</td><td>Daniil</td><td>Dubov</td><td>Moscú</td><td>28</td><td class="elo">2710</td></tr>
+                <tr><td class="posicion">19</td><td>Parham</td><td>Maghsoodloo</td><td>Gorgan</td><td>23</td><td class="elo">2707</td></tr>
+                <tr><td class="posicion">20</td><td>Leinier</td><td>Domínguez</td><td>La Habana</td><td>40</td><td class="elo">2705</td></tr>
+                <tr><td class="posicion">21</td><td>Carlos</td><td>Gómez</td><td>Madrid</td><td>25</td><td class="elo">2450</td></tr>
+                <tr><td class="posicion">22</td><td>Javier</td><td>Fernández</td><td>Barcelona</td><td>30</td><td class="elo">2420</td></tr>
+                <tr><td class="posicion">23</td><td>Lucía</td><td>Martínez</td><td>Valencia</td><td>22</td><td class="elo">2390</td></tr>
+                <tr><td class="posicion">24</td><td>David</td><td>López</td><td>Sevilla</td><td>28</td><td class="elo">2375</td></tr>
+                <tr><td class="posicion">25</td><td>Elena</td><td>Sánchez</td><td>Zaragoza</td><td>35</td><td class="elo">2350</td></tr>
+                <tr><td class="posicion">26</td><td>Andrés</td><td>Pérez</td><td>Málaga</td><td>19</td><td class="elo">2320</td></tr>
+                <tr><td class="posicion">27</td><td>Sofía</td><td>García</td><td>Murcia</td><td>21</td><td class="elo">2300</td></tr>
+                <tr><td class="posicion">28</td><td>Mateo</td><td>Rodríguez</td><td>Palma</td><td>45</td><td class="elo">2280</td></tr>
+                <tr><td class="posicion">29</td><td>Paula</td><td>González</td><td>Las Palmas</td><td>27</td><td class="elo">2265</td></tr>
+                <tr><td class="posicion">30</td><td>Alejandro</td><td>Hernández</td><td>Bilbao</td><td>33</td><td class="elo">2240</td></tr>
+                <tr><td class="posicion">31</td><td>Manuel</td><td>Ruiz</td><td>Alicante</td><td>50</td><td class="elo">2210</td></tr>
+                <tr><td class="posicion">32</td><td>Marta</td><td>Díaz</td><td>Córdoba</td><td>18</td><td class="elo">2195</td></tr>
+                <tr><td class="posicion">33</td><td>Diego</td><td>Moreno</td><td>Valladolid</td><td>29</td><td class="elo">2180</td></tr>
+                <tr><td class="posicion">34</td><td>Laura</td><td>Álvarez</td><td>Vigo</td><td>24</td><td class="elo">2160</td></tr>
+                <tr><td class="posicion">35</td><td>Hugo</td><td>Romero</td><td>Gijón</td><td>16</td><td class="elo">2145</td></tr>
+                <tr><td class="posicion">36</td><td>Álvaro</td><td>Alonso</td><td>Granada</td><td>38</td><td class="elo">2130</td></tr>
+                <tr><td class="posicion">37</td><td>Irene</td><td>Gutiérrez</td><td>A Coruña</td><td>26</td><td class="elo">2110</td></tr>
+                <tr><td class="posicion">38</td><td>Pablo</td><td>Navarro</td><td>Vitoria</td><td>42</td><td class="elo">2090</td></tr>
+                <tr><td class="posicion">39</td><td>Carmen</td><td>Torres</td><td>Badalona</td><td>31</td><td class="elo">2075</td></tr>
+                <tr><td class="posicion">40</td><td>Jorge</td><td>Domínguez</td><td>Oviedo</td><td>23</td><td class="elo">2050</td></tr>
+                <tr><td class="posicion">41</td><td>Raúl</td><td>Vázquez</td><td>Elche</td><td>20</td><td class="elo">2030</td></tr>
+                <tr><td class="posicion">42</td><td>Sara</td><td>Ramos</td><td>Móstoles</td><td>22</td><td class="elo">2015</td></tr>
+                <tr><td class="posicion">43</td><td>Adrian</td><td>Gil</td><td>Pamplona</td><td>36</td><td class="elo">1990</td></tr>
+                <tr><td class="posicion">44</td><td>Alba</td><td>Serrano</td><td>Almería</td><td>27</td><td class="elo">1970</td></tr>
+                <tr><td class="posicion">45</td><td>Iván</td><td>Blanco</td><td>Santander</td><td>17</td><td class="elo">1950</td></tr>
+                <tr><td class="posicion">46</td><td>Marina</td><td>Molina</td><td>Burgos</td><td>29</td><td class="elo">1930</td></tr>
+                <tr><td class="posicion">47</td><td>Rubén</td><td>Morales</td><td>Castellón</td><td>34</td><td class="elo">1910</td></tr>
+                <tr><td class="posicion">48</td><td>Nuria</td><td>Ortega</td><td>Albacete</td><td>25</td><td class="elo">1890</td></tr>
+                <tr><td class="posicion">49</td><td>Daniel</td><td>Delgado</td><td>Getafe</td><td>15</td><td class="elo">1860</td></tr>
+                <tr><td class="posicion">50</td><td>Caitlin</td><td>Castro</td><td>Logroño</td><td>28</td><td class="elo">1830</td></tr>
+            </tbody>
