@@ -8,7 +8,147 @@
 <body>
 
     <h1>🏆 Gran Torneo de Ajedrez 🏆</h1>
-    
+    <html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Reglamento del Torneo de Ajedrez</title>
+    <style>
+        :root {
+            --primary-color: #2c3e50;
+            --accent-color: #d35400;
+            --bg-color: #f8f9fa;
+            --card-bg: #ffffff;
+            --text-color: #333333;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            margin: 0;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            background: var(--card-bg);
+            padding: 40px;
+            border-radius: 8px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+        }
+
+        h1 {
+            color: var(--primary-color);
+            text-align: center;
+            border-bottom: 3px solid var(--accent-color);
+            padding-bottom: 10px;
+            margin-top: 0;
+        }
+
+        h2 {
+            color: var(--primary-color);
+            margin-top: 25px;
+            border-bottom: 1px solid #ddd;
+            padding-bottom: 5px;
+        }
+
+        .badge {
+            background-color: var(--accent-color);
+            color: white;
+            padding: 4px 8px;
+            border-radius: 4px;
+            font-size: 0.9em;
+            font-weight: bold;
+        }
+
+        ul {
+            padding-left: 20px;
+        }
+
+        li {
+            margin-bottom: 10px;
+        }
+
+        .highlight-box {
+            background-color: #eef6fc;
+            border-left: 4px solid #3498db;
+            padding: 15px;
+            margin: 20px 0;
+            border-radius: 0 4px 4px 0;
+        }
+
+        footer {
+            text-align: center;
+            margin-top: 30px;
+            font-size: 0.9em;
+            color: #777;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <h1>Reglamento del Torneo de Ajedrez</h1>
+
+    <div class="highlight-box">
+        <strong>Ritmo de Juego:</strong> 10 minutos + 5 segundos de incremento por jugada desde el movimiento 1 <span class="badge">Blitz / Rápido</span><br>
+        <strong>Sistema de Juego:</strong> Suizo (a determinar número de rondas según participación).
+    </div>
+
+    <h2>1. Ritmo y Control de Tiempo</h2>
+    <ul>
+        <li>Cada jugador dispondrá de <strong>10 minutos</strong> para toda la partida, con un <strong>incremento de 5 segundos</strong> por cada jugada realizada.</li>
+        <li>Es obligatorio el uso de reloj manual configurado con el modo de incremento.</li>
+        <li>El tiempo comenzará a correr a la hora programada para la ronda. Si un jugador no se presenta pasados <strong>10 minutos</strong> del inicio de la ronda, perderá la partida por incomparecencia (W.O.).</li>
+    </ul>
+
+    <h2>2. Sistema de Emparejamientos (Sistema Suizo)</h2>
+    <ul>
+        <li>Los emparejamientos se realizarán mediante un programa informático homologado por la FIDE (p. ej., Swiss-Manager).</li>
+        <li>Ningún jugador se enfrentará al mismo oponente más de una vez durante el torneo.</li>
+        <li>Las victorias otorgan <strong>1 punto</strong>, las tablas <strong>0.5 puntos</strong> y las derrotas <strong>0 puntos</strong>.</li>
+        <li>Un jugador que reciba un <i>BYE</i> asignado por la organización obtendrá 1 punto (o 0.5 según las bases específicas del torneo).</li>
+    </ul>
+
+    <h2>3. Reglas de Juego e Ilegalidades</h2>
+    <ul>
+        <li>Se aplicarán las leyes del ajedrez de la FIDE vigentes.</li>
+        <li><strong>Jugadas ilegales:</strong> La realización de una jugada ilegal completada (al pulsar el reloj) será penalizada. En este ritmo de juego, la <strong>segunda jugada ilegal</strong> por parte del mismo jugador significará la pérdida de la partida.</li>
+        <li>Para reclamar una jugada ilegal, el oponente debe detener el reloj y notificar de inmediato al árbitro antes de realizar su propia jugada.</li>
+        <li><strong>Pieza tocada, pieza jugada:</strong> Si se toca deliberadamente una pieza propia, debe moverla si es legal. Si se toca una del rival, debe capturarla si es legal.</li>
+    </ul>
+
+    <h2>4. Sistemas de Desempate</h2>
+    <p>En caso de empate a puntos en la clasificación final, se aplicarán los siguientes criterios en orden prioritario:</p>
+    <ul>
+        <li>1. <strong>Resultado particular</strong> (si los empatados jugaron entre sí).</li>
+        <li>2. <strong>Buchholz Cut 1</strong> (Suma de los puntos de los rivales, descontando el de menor puntuación).</li>
+        <li>3. <strong>Buchholz Total</strong> (Suma total de los puntos de todos los rivales).</li>
+        <li>4. <strong>Sonneborn-Berger</strong>.</li>
+    </ul>
+
+    <h2>5. Conducta y Dispositivos Electrónicos</h2>
+    <ul>
+        <li>Está estrictamente prohibido el uso de <strong>teléfonos móviles</strong> u otros dispositivos electrónicos dentro de la sala de juego. Deben permanecer completamente apagados. Un teléfono que suene o emita señales provocará la pérdida automática de la partida.</li>
+        <li>Se exige un comportamiento deportivo en todo momento. Queda prohibido molestar o distraer al oponente.</li>
+    </ul>
+
+    <h2>6. Decisiones Arbitrales</h2>
+    <ul>
+        <li>Las decisiones del Árbitro Principal serán inapelables durante el transcurso de la ronda.</li>
+        <li>Cualquier situación no contemplada en este reglamento se resolverá aplicando las normas FIDE correspondientes.</li>
+    </ul>
+
+    <footer>
+        <p>¡Buena suerte a todos los participantes!</p>
+    </footer>
+</div>
+
+</body>
+</html>
     <hr>
 </body>
 </html>
