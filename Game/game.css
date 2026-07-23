@@ -1,0 +1,365 @@
+/* ============================================
+   ESTILOS DEL JUEGO "LA EXPEDICIÓN DE EL DORADO"
+   Este archivo se carga DESPUÉS de styles.css,
+   así que aquí solo cambiamos lo que hace falta
+   para darle el aire de selva y oro.
+   ============================================ */
+
+/* Colores del juego, guardados con nombre para
+   poder reutilizarlos en todo el archivo */
+:root
+{
+  --selva-oscura: #14301f;
+  --selva: #1e4a30;
+  --pergamino: #fdf6e3;
+  --oro: #d4a017;
+  --oro-claro: #f2c94c;
+  --texto: #2c3e50;
+}
+
+body.jungla
+{
+  background-color: var(--selva-oscura);
+  background-image:
+    radial-gradient(circle at 20% 0%, rgba(46, 125, 80, 0.35), transparent 55%),
+    radial-gradient(circle at 85% 15%, rgba(212, 160, 23, 0.18), transparent 50%);
+  color: var(--pergamino);
+  max-width: 1100px;
+  margin: 20px auto;
+  padding: 0 15px;
+}
+
+body.jungla h1
+{
+  color: var(--oro-claro);
+  text-shadow: 0 2px 6px rgba(0, 0, 0, 0.6);
+}
+
+.subtitulo
+{
+  text-align: center;
+  color: #cfe3d4;
+  margin-top: -5px;
+}
+
+hr
+{
+  border: none;
+  border-top: 1px solid rgba(212, 160, 23, 0.4);
+}
+
+/* Reaprovechamos la .info-box de styles.css,
+   pero con el papel envejecido de un diario */
+body.jungla .info-box
+{
+  background-color: var(--pergamino);
+  color: var(--texto);
+  border: 1px solid rgba(212, 160, 23, 0.6);
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.35);
+}
+
+body.jungla .info-box h2
+{
+  margin-top: 0;
+  color: var(--selva);
+  border-bottom: 2px solid var(--oro);
+  padding-bottom: 6px;
+}
+
+.pista
+{
+  font-size: 13px;
+  color: #6b6b5f;
+}
+
+/* ---------- Barra de recursos ---------- */
+
+.barra-recursos
+{
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  justify-content: space-around;
+  text-align: center;
+}
+
+.recurso
+{
+  flex: 1 1 120px;
+  padding: 8px;
+  border-radius: 8px;
+  background-color: rgba(212, 160, 23, 0.12);
+}
+
+.recurso-icono
+{
+  display: block;
+  font-size: 22px;
+}
+
+.recurso-valor
+{
+  display: block;
+  font-size: 24px;
+  font-weight: bold;
+  color: #8a6100;
+}
+
+.recurso-nombre
+{
+  font-size: 12px;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  color: #6b6b5f;
+}
+
+/* ---------- Dos columnas ---------- */
+
+.columnas
+{
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  align-items: flex-start;
+}
+
+.columna
+{
+  flex: 1 1 340px;
+  min-width: 300px;
+}
+
+/* ---------- El templo (botón principal) ---------- */
+
+.zona-clic
+{
+  text-align: center;
+}
+
+.templo
+{
+  display: block;
+  margin: 15px auto;
+  width: 180px;
+  height: 180px;
+  border-radius: 50%;
+  border: 4px solid var(--oro);
+  background: radial-gradient(circle at 50% 35%, #2e7d4f, #14301f);
+  cursor: pointer;
+  transition: transform 0.08s ease, box-shadow 0.2s ease;
+  box-shadow: 0 0 25px rgba(242, 201, 76, 0.35);
+}
+
+.templo:hover
+{
+  box-shadow: 0 0 40px rgba(242, 201, 76, 0.6);
+}
+
+/* Cuando se aprieta, el templo se hunde un poco */
+.templo:active
+{
+  transform: scale(0.94);
+}
+
+.templo-icono
+{
+  font-size: 80px;
+  line-height: 1;
+}
+
+.mensaje
+{
+  min-height: 22px;
+  font-style: italic;
+  color: var(--selva);
+}
+
+/* Número flotante que sube al hacer clic */
+.oro-flotante
+{
+  position: absolute;
+  font-weight: bold;
+  color: var(--oro);
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.5);
+  pointer-events: none;
+  animation: subir 0.9s ease-out forwards;
+}
+
+@keyframes subir
+{
+  from { opacity: 1; transform: translateY(0); }
+  to   { opacity: 0; transform: translateY(-60px); }
+}
+
+/* ---------- Barra de progreso ---------- */
+
+.barra-progreso
+{
+  height: 22px;
+  background-color: #e0d8c0;
+  border-radius: 11px;
+  overflow: hidden;
+  border: 1px solid #c9bfa0;
+}
+
+.barra-progreso-relleno
+{
+  height: 100%;
+  width: 0%;
+  background: linear-gradient(90deg, var(--oro), var(--oro-claro));
+  transition: width 0.3s ease;
+}
+
+/* ---------- Tarjetas de la tienda ---------- */
+
+.item
+{
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  width: 100%;
+  text-align: left;
+  padding: 10px;
+  margin-bottom: 8px;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  background-color: #ffffff;
+  cursor: pointer;
+  font-family: inherit;
+  font-size: 14px;
+  color: var(--texto);
+  transition: border-color 0.15s ease, background-color 0.15s ease;
+}
+
+.item:hover:not(:disabled)
+{
+  border-color: var(--oro);
+  background-color: #fffaea;
+}
+
+/* Si no alcanza el oro, la tarjeta se ve apagada.
+   Usamos una clase y NO el atributo "disabled": un botón
+   deshabilitado a mitad de la pulsación se come el clic. */
+.item.no-alcanza
+{
+  opacity: 0.55;
+  filter: grayscale(60%);
+}
+
+.item.comprada
+{
+  border-color: #2e7d4f;
+  background-color: #f0f7f0;
+  cursor: default;
+}
+
+.item-icono
+{
+  font-size: 30px;
+}
+
+.item-texto
+{
+  flex: 1;
+}
+
+.item-nombre
+{
+  font-weight: bold;
+  display: block;
+}
+
+.item-detalle
+{
+  font-size: 12px;
+  color: #6b6b5f;
+}
+
+.item-precio
+{
+  font-weight: bold;
+  color: #8a6100;
+  white-space: nowrap;
+}
+
+.item-cantidad
+{
+  background-color: var(--selva);
+  color: var(--pergamino);
+  border-radius: 12px;
+  padding: 2px 9px;
+  font-size: 12px;
+  font-weight: bold;
+}
+
+/* ---------- Diario de viaje ---------- */
+
+.diario
+{
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  max-height: 180px;
+  overflow-y: auto;
+  font-size: 13px;
+}
+
+.diario li
+{
+  padding: 6px 8px;
+  border-left: 3px solid var(--oro);
+  margin-bottom: 5px;
+  background-color: #f7f0da;
+}
+
+/* ---------- Botones de partida ---------- */
+
+.acciones
+{
+  display: flex;
+  gap: 10px;
+  margin-bottom: 10px;
+}
+
+.codigo
+{
+  width: 100%;
+  box-sizing: border-box;
+  resize: vertical;
+  font-family: monospace;
+  font-size: 11px;
+  padding: 8px;
+  margin-bottom: 10px;
+  border: 1px solid #c9bfa0;
+  border-radius: 6px;
+  background-color: #fffaea;
+  color: var(--texto);
+}
+
+.boton-accion
+{
+  flex: 1;
+  padding: 10px;
+  border: none;
+  border-radius: 6px;
+  background-color: var(--selva);
+  color: var(--pergamino);
+  font-size: 14px;
+  font-family: inherit;
+  cursor: pointer;
+}
+
+.boton-accion:hover
+{
+  background-color: #2e7d4f;
+}
+
+.boton-accion.peligro
+{
+  background-color: #8a3324;
+}
+
+.boton-accion.peligro:hover
+{
+  background-color: #a8412e;
+}

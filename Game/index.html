@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>La Expedición de El Dorado</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="game.css">
+</head>
+<body class="jungla">
+
+    <h1>🗺️ La Expedición de El Dorado 🏛️</h1>
+    <p class="subtitulo">Reúne oro, contrata exploradores y encuentra la ciudad perdida.</p>
+
+    <hr>
+
+    <!-- ============================================
+         BARRA DE RECURSOS (siempre visible arriba)
+         ============================================ -->
+    <div class="info-box barra-recursos">
+        <div class="recurso">
+            <span class="recurso-icono">💰</span>
+            <span class="recurso-valor" id="oro">0</span>
+            <span class="recurso-nombre">Oro</span>
+        </div>
+        <div class="recurso">
+            <span class="recurso-icono">⏱️</span>
+            <span class="recurso-valor" id="oroPorSegundo">0</span>
+            <span class="recurso-nombre">Oro / segundo</span>
+        </div>
+        <div class="recurso">
+            <span class="recurso-icono">⛏️</span>
+            <span class="recurso-valor" id="oroPorClic">1</span>
+            <span class="recurso-nombre">Oro / clic</span>
+        </div>
+        <div class="recurso">
+            <span class="recurso-icono">🏺</span>
+            <span class="recurso-valor" id="reliquias">0</span>
+            <span class="recurso-nombre">Reliquias</span>
+        </div>
+    </div>
+
+    <div class="columnas">
+
+        <!-- ============================================
+             COLUMNA IZQUIERDA: la selva y el progreso
+             ============================================ -->
+        <div class="columna">
+
+            <div class="info-box zona-clic">
+                <h2>🌿 Explora la selva</h2>
+                <p>Haz clic en el templo para buscar oro entre las ruinas.</p>
+
+                <button id="botonExplorar" class="templo" type="button">
+                    <span class="templo-icono">🏛️</span>
+                </button>
+
+                <p class="mensaje" id="mensaje">La expedición está lista para partir…</p>
+            </div>
+
+            <div class="info-box">
+                <h2>🧭 Progreso de la expedición</h2>
+                <p id="etapaActual">Etapa 1: El puerto de Cartagena</p>
+
+                <div class="barra-progreso">
+                    <div class="barra-progreso-relleno" id="barraProgreso"></div>
+                </div>
+
+                <p class="pista" id="textoProgreso">0 / 100 de oro total reunido</p>
+            </div>
+
+            <div class="info-box">
+                <h2>📜 Diario de viaje</h2>
+                <ul class="diario" id="diario">
+                    <li>Comienza la expedición río arriba…</li>
+                </ul>
+            </div>
+
+        </div>
+
+        <!-- ============================================
+             COLUMNA DERECHA: tienda del tycoon
+             ============================================ -->
+        <div class="columna">
+
+            <div class="info-box">
+                <h2>👥 Contrata a tu expedición</h2>
+                <p class="pista">Cada miembro produce oro automáticamente, sin hacer clic.</p>
+                <div id="listaGeneradores"></div>
+            </div>
+
+            <div class="info-box">
+                <h2>⚒️ Mejoras de equipo</h2>
+                <p class="pista">Las mejoras aumentan el oro que consigues por clic.</p>
+                <div id="listaMejoras"></div>
+            </div>
+
+            <div class="info-box">
+                <h2>💾 Partida</h2>
+                <p class="pista">
+                    Tu progreso se guarda solo en este navegador cada 15 segundos.
+                    Para llevarlo a otro ordenador, expórtalo y guarda el código.
+                </p>
+
+                <div class="acciones">
+                    <button id="botonGuardar" class="boton-accion" type="button">💾 Guardar</button>
+                    <button id="botonReiniciar" class="boton-accion peligro" type="button">🗑️ Reiniciar</button>
+                </div>
+
+                <textarea id="codigoPartida" class="codigo" rows="3" spellcheck="false"
+                          placeholder="Aquí aparecerá tu código al exportar. Pega uno y pulsa Importar para recuperar una partida."></textarea>
+
+                <div class="acciones">
+                    <button id="botonExportar" class="boton-accion" type="button">📤 Exportar</button>
+                    <button id="botonImportar" class="boton-accion" type="button">📥 Importar</button>
+                </div>
+            </div>
+
+        </div>
+
+    </div>
+
+    <hr>
+
+    <div class="info-box">
+        <h2>📌 Cómo se juega</h2>
+        <ul>
+            <li>Haz clic en el templo para conseguir oro.</li>
+            <li>Gasta el oro en <strong>miembros de la expedición</strong>: producen oro solos.</li>
+            <li>Compra <strong>mejoras</strong> para que cada clic valga más.</li>
+            <li>Llega a las 6 etapas y descubre <strong>El Dorado</strong>. 🏆</li>
+            <li><a href="../index.html">← Volver a la página principal</a></li>
+        </ul>
+    </div>
+
+    <script src="game.js"></script>
+</body>
+</html>
