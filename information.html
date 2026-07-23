@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Torneo de Ajedrez de Caballar</title>
+    <style>
+        :root {
+            --primary: #1e293b;
+            --accent: #d97706;
+            --bg: #f8fafc;
+            --text: #334155;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: var(--bg);
+            color: var(--text);
+            margin: 0;
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .header {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+
+        .header h1 {
+            color: var(--primary);
+            font-size: 2.2rem;
+            margin-bottom: 5px;
+        }
+
+        .header p {
+            font-size: 1.1rem;
+            color: #64748b;
+            margin: 0;
+        }
+
+        /* Tarjetas de Información */
+        .info-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 20px;
+            width: 100%;
+            max-width: 950px;
+            margin-bottom: 30px;
+        }
+
+        .card {
+            background: #ffffff;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+            border-left: 5px solid var(--accent);
+        }
+
+        .card h3 {
+            margin-top: 0;
+            color: var(--primary);
+            font-size: 1.2rem;
+        }
+
+        .card p {
+            margin: 8px 0;
+            font-size: 0.95rem;
+        }
+
+        .badge {
+            display: inline-block;
+            background-color: #fef3c7;
+            color: #92400e;
+            font-size: 0.85rem;
+            font-weight: bold;
+            padding: 3px 8px;
+            border-radius: 4px;
+            margin-top: 5px;
+        }
+
+        /* Tabla de Inscripción/Clasificación */
+        .tabla-contenedor {
+            width: 100%;
+            max-width: 950px;
+            background-color: #ffffff;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+            border-radius: 10px;
+            overflow: hidden;
+            margin-bottom: 20px;
+        }
+
+        .tabla-titulo {
+            background-color: var(--primary);
+            color: white;
+            padding: 15px 20px;
+            margin: 0;
+            font-size: 1.2rem;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            text-align: left;
+        }
+
+        thead {
+            background-color: #334155;
+            color: #ffffff;
+        }
+
+        th, td {
+            padding: 10px 14px;
+            border-bottom: 1px solid #e2e8f0;
+            font-size: 14px;
+        }
+
+        /* Alineaciones */
+        th:nth-child(1), td:nth-child(1),
+        th:nth-child(5), td:nth-child(5),
+        th:nth-child(6), td:nth-child(6) {
+            text-align: center;
+        }
+
+        tbody tr:nth-child(even) {
+            background-color: #f1f5f9;
+        }
+
+        tbody tr:hover {
+            background-color: #e2e8f0;
+        }
+
+        /* Botón */
+        .btn-imprimir {
+            padding: 12px 24px;
+            background-color: var(--primary);
+            color: white;
+            border: none;
+            border-radius: 6px;
+            cursor: pointer;
+            font-size: 1rem;
+            font-weight: bold;
+            transition: background 0.2s;
+        }
+
+        .btn-imprimir:hover {
+            background-color: var(--accent);
+        }
+
+        @media print {
+            .btn-imprimir { display: none; }
+            body { background: white; padding: 0; }
+            .tabla-contenedor, .card { box-shadow: none; border: 1px solid #ccc; }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="header">
+        <h1>🏆 Próximo Torneo de Ajedrez de Caballar</h1>
+        <p>¡Inscripciones abiertas para jugadores de todas las edades!</p>
+    </div>
+
+    <!-- Sección de Información General y Organización -->
+    <div class="info-grid">
+        <div class="card">
+            <h3>📌 Detalles del Evento</h3>
+            <p><strong>Ubicación:</strong> Caballar</p>
+            <p><strong>Aforo máximo:</strong> 50 participantes</p>
+            <p><strong>Ritmo de juego:</strong> 10 + 3</p>
+        </div>
+
+        <div class="card" style="border-left-color: var(--primary);">
+            <h3>👥 Organización</h3>
+            <p><strong>Xian Carbia:</strong> 16 años | ELO 1700</p>
+            <p><strong>Óliver Valle:</strong> 12 años | Sin ELO </p>
+            <span class="badge">Directores del Torneo</span>
+        </div>
+    </div>
+
+    <!-- Tabla con los 50 puestos vacíos -->
+    <div class="tabla-contenedor">
+        <h2 class="tabla-titulo">Lista de Inscritos / Clasificación (50 Plazas)</h2>
+        <table>
+            <thead>
+                <tr>
+                    <th>Nº</th>
+                    <th>Nombre</th>
+                    <th>Apellido</th>
+                    <th>Localidad</th>
+                    <th>Edad</th>
+                    <th>ELO</th>
+                </tr>
+            </thead>
+            <tbody>
+                <!-- Generación de las 50 filas vacías -->
+                <tr><td>1</td><td></td><td></td><td></td><td></td><td></td></tr>
+                <tr><td>2</td><td></td><td></td><td></td><td></td><td></td></tr>
+                <tr><td>3</td><td></td><td></td><td></td><td></td><td></td></tr>
+                <tr><td>4</td><td></td><td></td><td></td><td></td><td></td></tr>
+                <tr><td>5</td><td></td><td></td><td></td><td></td><td></td></tr>
+                <tr><td>6</td><td></td><td></td><td></td><td></td><td></td></tr>
+                <tr><td>7</td><td></td><td></td><td></td><td></td><td></td></tr>
+                <tr><td>8</td><td></td><td></td><td></td><td></td><td></td></tr>
+                <tr><td>9</td><td></td><td></td><td></td><td></td><td></td></tr>
+                <tr><td>10</td><td></td><td></td><td></td><td></td><td></td></tr>
+                <tr><td>11</td><td></td><td></td><td></td><td></td><td></td></tr>
+                <tr><td>12</td><td></td><td></td><td></td><td></td><td></td></tr>
+                <tr><td>13</td><td></td><td></td><td></td><td></td><td></td></tr>
+                <tr><td>14</td><td></td><td></td><td></td><td></td><td></td></tr>
+                <tr><td>15</td><td></td><td></td><td></td><td></td><td></td></tr>
+                <tr><td>16</td><td></td><td></td><td></td><td></td><td></td></tr>
+                <tr><td>17</td><td></td><td></td><td></td><td></td><td></td></tr>
+                <tr><td>18</td><td></td><td></td><td></td><td></td><td></td></tr>
+                <tr><td>19</td><td></td><td></td><td></td><td></td><td></td></tr>
+                <tr><td>20</td><td></td><td></td><td></td><td></td><td></td></tr>
+                <tr><td>21</td><td></td><td></td><td></td><td></td><td></td></tr>
+                <tr><td>22</td><td></td><td></td><td></td><td></td><td></td></tr>
+                <tr><td>23</td><td></td><td></td><td></td><td></td><td></td></tr>
+                <tr><td>24</td><td></td><td></td><td></td><td></td><td></td></tr>
+                <tr><td>25</td><td></td><td></td><td></td><td></td><td></td></tr>
+                <tr><td>26</td><td></td><td></td><td></td><td></td><td></td></tr>
+                <tr><td>27</td><td></td><td></td><td></td><td></td><td></td></tr>
+                <tr><td>28</td><td></td><td></td><td></td><td></td><td></td></tr>
+                <tr><td>29</td><td></td><td></td><td></td><td></td><td></td></tr>
+                <tr><td>30</td><td></td><td></td><td></td><td></td><td></td></tr>
+                <tr><td>31</td><td></td><td></td><td></td><td></td><td></td></tr>
+                <tr><td>32</td><td></td><td></td><td></td><td></td><td></td></tr>
+                <tr><td>33</td><td></td><td></td><td></td><td></td><td></td></tr>
+                <tr><td>34</td><td></td><td></td><td></td><td></td><td></td></tr>
+                <tr><td>35</td><td></td><td></td><td></td><td></td><td></td></tr>
+                <tr><td>36</td><td></td><td></td><td></td><td></td><td></td></tr>
+                <tr><td>37</td><td></td><td></td><td></td><td></td><td></td></tr>
+                <tr><td>38</td><td></td><td></td><td></td><td></td><td></td></tr>
+                <tr><td>39</td><td></td><td></td><td></td><td></td><td></td></tr>
+                <tr><td>40</td><td></td><td></td><td></td><td></td><td></td></tr>
+                <tr><td>41</td><td></td><td></td><td></td><td></td><td></td></tr>
+                <tr><td>42</td><td></td><td></td><td></td><td></td><td></td></tr>
+                <tr><td>43</td><td></td><td></td><td></td><td></td><td></td></tr>
+                <tr><td>44</td><td></td><td></td><td></td><td></td><td></td></tr>
+                <tr><td>45</td><td></td><td></td><td></td><td></td><td></td></tr>
+                <tr><td>46</td><td></td><td></td><td></td><td></td><td></td></tr>
+                <tr><td>47</td><td></td><td></td><td></td><td></td><td></td></tr>
+                <tr><td>48</td><td></td><td></td><td></td><td></td><td></td></tr>
+                <tr><td>49</td><td></td><td></td><td></td><td></td><td></td></tr>
+                <tr><td>50</td><td></td><td></td><td></td><td></td><td></td></tr>
+            </tbody>
+        </table>
+    </div>
+
+    <button class="btn-imprimir" onclick="window.print()">Imprimir o Guardar Cartel / PDF</button>
+
+</body>
+</html>
