@@ -3,335 +3,661 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Athletic Club de Bilbao - Geuria!</title>
+    <title>Athletic Club de Bilbao - Athletic Club Zurekin</title>
     <style>
+        /* --- VARIABLES Y ESTILOS GLOBALES --- */
         :root {
             --red: #EE2524;
             --white: #FFFFFF;
             --black: #111111;
-            --grey: #F4F4F4;
+            --dark-gray: #1E1E1E;
+            --light-gray: #F4F4F4;
+            --gold: #D4AF37;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
         }
 
         body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            margin: 0;
-            padding: 0;
-            background-color: var(--grey);
+            background-color: var(--light-gray);
             color: var(--black);
+            line-height: 1.6;
         }
 
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+
+        /* --- HEADER Y NAVEGACIÓN --- */
         header {
             background-color: var(--red);
             color: var(--white);
-            text-align: center;
-            padding: 2rem 1rem;
-            border-bottom: 5px solid var(--black);
+            padding: 1rem 2rem;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo-container {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .logo-badge {
+            width: 45px;
+            height: 45px;
+            background: var(--white);
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-weight: bold;
+            color: var(--red);
+            border: 2px solid var(--black);
         }
 
         header h1 {
-            margin: 0;
-            font-size: 2.8rem;
-            letter-spacing: 2px;
+            font-size: 1.5rem;
             text-transform: uppercase;
+            letter-spacing: 1px;
         }
 
-        header p {
-            margin-top: 0.5rem;
-            font-style: italic;
-            font-size: 1.2rem;
-        }
-
-        nav {
-            background-color: var(--black);
+        nav ul {
             display: flex;
-            justify-content: center;
+            list-style: none;
             gap: 20px;
-            padding: 10px;
         }
 
         nav a {
-            color: var(--white);
-            text-decoration: none;
-            font-weight: bold;
+            font-weight: 600;
             transition: color 0.3s;
         }
 
         nav a:hover {
-            color: var(--red);
+            color: var(--black);
         }
 
+        /* --- HERO SECTION --- */
+        .hero {
+            background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), 
+                        url('https://images.unsplash.com/photo-1508098682722-e99c43a406b2?auto=format&fit=crop&w=1350&q=80');
+            background-size: cover;
+            background-position: center;
+            height: 60vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            color: var(--white);
+            text-align: center;
+            padding: 0 20px;
+        }
+
+        .hero h2 {
+            font-size: 3.5rem;
+            margin-bottom: 10px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.8);
+        }
+
+        .hero p {
+            font-size: 1.5rem;
+            font-style: italic;
+            color: var(--gold);
+        }
+
+        /* --- CONTENEDOR PRINCIPAL Y SECCIONES --- */
         .container {
-            max-width: 1000px;
-            margin: 20px auto;
+            max-width: 1200px;
+            margin: 40px auto;
             padding: 0 20px;
         }
 
         section {
-            background: var(--white);
-            padding: 25px;
-            margin-bottom: 25px;
-            border-radius: 8px;
-            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            margin-bottom: 60px;
         }
 
-        h2 {
-            color: var(--red);
-            border-bottom: 2px solid var(--red);
-            padding-bottom: 8px;
-            margin-top: 0;
+        .section-title {
+            font-size: 2rem;
+            border-bottom: 4px solid var(--red);
+            display: inline-block;
+            margin-bottom: 30px;
+            text-transform: uppercase;
         }
 
-        /* Dibujos SVG */
-        .illustrations {
+        /* --- SECCIÓN EQUIPACIÓN (CON EFECTOS) --- */
+        .kit-container {
             display: flex;
-            justify-content: space-around;
-            align-items: center;
+            justify-content: center;
+            gap: 40px;
             flex-wrap: wrap;
-            gap: 20px;
-            margin: 20px 0;
         }
 
-        .svg-card {
+        .kit-card {
+            background: var(--white);
+            border-radius: 12px;
+            padding: 20px;
+            width: 280px;
             text-align: center;
-        }
-
-        /* Grid de Jugadores */
-        .grid-jugadores {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 20px;
-            margin-top: 15px;
-        }
-
-        .card-jugador {
-            border: 1px solid #ddd;
-            border-radius: 8px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            transition: transform 0.4s ease, box-shadow 0.4s ease;
+            position: relative;
             overflow: hidden;
-            text-align: center;
-            transition: transform 0.2s;
         }
 
-        .card-jugador:hover {
-            transform: translateY(-5px);
+        .kit-card:hover {
+            transform: translateY(-10px) scale(1.02);
+            box-shadow: 0 12px 25px rgba(238, 37, 36, 0.3);
         }
 
-        .card-jugador img {
-            width: 100%;
-            height: 220px;
-            object-fit: cover;
-        }
-
-        .card-jugador h3 {
-            margin: 10px 0 5px;
-            color: var(--black);
-        }
-
-        .card-jugador p {
-            font-size: 0.9rem;
-            color: #666;
-            margin-bottom: 10px;
-        }
-
-        /* Lista de Goles */
-        .gol-item {
+        .kit-image-box {
+            height: 250px;
             display: flex;
+            justify-content: center;
             align-items: center;
-            gap: 15px;
+            border-radius: 8px;
             margin-bottom: 15px;
-            background: #fafafa;
-            padding: 10px;
-            border-left: 4px solid var(--red);
+            position: relative;
         }
 
-        .gol-item img {
-            width: 120px;
-            height: 80px;
-            object-fit: cover;
-            border-radius: 4px;
+        /* Camiseta local (Rayas) */
+        .first-kit {
+            background: repeating-linear-gradient(
+                90deg,
+                var(--red),
+                var(--red) 25px,
+                var(--white) 25px,
+                var(--white) 50px
+            );
+            border: 1px solid #ccc;
         }
 
-        /* Tabla de Palmarés */
-        table {
-            width: 100%;
-            border-collapse: collapse;
+        /* Camiseta visitante (Azul/León) */
+        .second-kit {
+            background: linear-gradient(135deg, #002B49 0%, #005596 100%);
+            color: var(--white);
+        }
+
+        .kit-title {
+            font-weight: bold;
+            font-size: 1.2rem;
             margin-top: 10px;
         }
 
-        th, td {
-            padding: 10px;
-            text-align: left;
-            border-bottom: 1px solid #ddd;
+        /* --- PLANTILLA DE JUGADORES --- */
+        .grid-players {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 20px;
         }
 
-        th {
+        .player-card {
+            background: var(--white);
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+            transition: transform 0.3s;
+        }
+
+        .player-card:hover {
+            transform: scale(1.03);
+        }
+
+        .player-card img {
+            width: 100%;
+            height: 250px;
+            object-fit: cover;
+        }
+
+        .player-info {
+            padding: 15px;
+            text-align: center;
+        }
+
+        .player-number {
+            background: var(--red);
+            color: var(--white);
+            font-weight: bold;
+            padding: 2px 8px;
+            border-radius: 4px;
+            font-size: 0.9rem;
+        }
+
+        .player-name {
+            font-size: 1.1rem;
+            margin: 8px 0 4px 0;
+            font-weight: bold;
+        }
+
+        .player-pos {
+            color: #666;
+            font-size: 0.85rem;
+            text-transform: uppercase;
+        }
+
+        /* --- GALERÍA DE FOTOS --- */
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 15px;
+        }
+
+        .gallery-item {
+            position: relative;
+            height: 200px;
+            overflow: hidden;
+            border-radius: 8px;
+        }
+
+        .gallery-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+
+        .gallery-item:hover img {
+            transform: scale(1.15);
+        }
+
+        .gallery-overlay {
+            position: absolute;
+            bottom: 0;
+            background: linear-gradient(transparent, rgba(0,0,0,0.8));
+            width: 100%;
+            color: var(--white);
+            padding: 10px;
+            box-sizing: border-box;
+            opacity: 0;
+            transition: opacity 0.3s;
+        }
+
+        .gallery-item:hover .gallery-overlay {
+            opacity: 1;
+        }
+
+        /* --- GOLES HISTÓRICOS Y RÉCORDS --- */
+        .timeline {
+            border-left: 4px solid var(--red);
+            padding-left: 20px;
+            margin-left: 10px;
+        }
+
+        .timeline-item {
+            margin-bottom: 25px;
+            position: relative;
+        }
+
+        .timeline-item::before {
+            content: '';
+            width: 12px;
+            height: 12px;
+            background: var(--red);
+            border-radius: 50%;
+            position: absolute;
+            left: -28px;
+            top: 5px;
+        }
+
+        .timeline-date {
+            font-weight: bold;
+            color: var(--red);
+        }
+
+        /* --- DATOS Y ESTADÍSTICAS (SECCIÓN MASIVA) --- */
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px;
+            margin-bottom: 30px;
+        }
+
+        .stat-box {
+            background: var(--dark-gray);
+            color: var(--white);
+            padding: 20px;
+            border-radius: 8px;
+            text-align: center;
+            border-bottom: 4px solid var(--gold);
+        }
+
+        .stat-number {
+            font-size: 2.5rem;
+            font-weight: bold;
+            color: var(--gold);
+        }
+
+        .stat-label {
+            font-size: 0.9rem;
+            text-transform: uppercase;
+        }
+
+        .data-table {
+            width: 100%;
+            border-collapse: collapse;
+            background: var(--white);
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+
+        .data-table th, .data-table td {
+            padding: 12px 15px;
+            text-align: left;
+        }
+
+        .data-table th {
             background-color: var(--red);
             color: var(--white);
         }
 
+        .data-table tr:nth-child(even) {
+            background-color: #f8f8f8;
+        }
+
+        /* --- FOOTER --- */
         footer {
-            text-align: center;
-            padding: 15px;
-            background-color: var(--black);
+            background: var(--black);
             color: var(--white);
+            text-align: center;
+            padding: 30px;
+            margin-top: 40px;
+        }
+
+        footer p {
+            color: #aaa;
             font-size: 0.9rem;
         }
     </style>
 </head>
 <body>
 
+    <!-- CABECERA -->
     <header>
-        <h1>Athletic Club</h1>
-        <p>"Con cantera y afición, no hace falta importación"</p>
+        <div class="logo-container">
+            <div class="logo-badge">ATH</div>
+            <h1>Athletic Club</h1>
+        </div>
+        <nav>
+            <ul>
+                <li><a href="#equipaciones">Equipación</a></li>
+                <li><a href="#plantilla">Plantilla</a></li>
+                <li><a href="#goles">Goles</a></li>
+                <li><a href="#records">Récords</a></li>
+                <li><a href="#datos">Datos</a></li>
+            </ul>
+        </nav>
     </header>
 
-    <nav>
-        <a href="#dibujos">Símbolos</a>
-        <a href="#jugadores">Leyendas</a>
-        <a href="#goles">Goles Históricos</a>
-        <a href="#palmares">Palmarés</a>
-    </nav>
+    <!-- HERO SECTION -->
+    <div class="hero">
+        <h2>Gure Estiloa, Gure Història</h2>
+        <p>"Con cantera y afición, no hace falta importación"</p>
+    </div>
 
     <div class="container">
 
-        <!-- SECCIÓN DIBUJOS / ILUSTRACIONES SVG -->
-        <section id="dibujos">
-            <h2>Símbolos del Club (Dibujos Vectoriales)</h2>
-            <div class="illustrations">
+        <!-- EQUIPACIONES CON EFECTOS -->
+        <section id="equipaciones">
+            <h2 class="section-title">Equipaciones Oficiales</h2>
+            <div class="kit-container">
                 
-                <!-- Dibujo 1: Camiseta Rojiblanca -->
-                <div class="svg-card">
-                    <svg width="120" height="120" viewBox="0 0 100 100">
-                        <!-- Cuerpo Camiseta -->
-                        <path d="M 30,20 L 40,10 L 60,10 L 70,20 L 85,30 L 75,45 L 70,40 L 70,90 L 30,90 L 30,40 L 25,45 L 15,30 Z" fill="#EE2524" stroke="#111" stroke-width="2"/>
-                        <!-- Franjas Blancas -->
-                        <rect x="38" y="11" width="8" height="78" fill="#FFF"/>
-                        <rect x="54" y="11" width="8" height="78" fill="#FFF"/>
-                        <!-- Cuello -->
-                        <path d="M 40,10 Q 50,20 60,10" fill="none" stroke="#111" stroke-width="3"/>
-                    </svg>
-                    <p><strong>La Camiseta</strong></p>
+                <div class="kit-card">
+                    <div class="kit-image-box first-kit">
+                        <span style="background: white; padding: 5px 10px; font-weight: bold; border-radius: 4px;">Primera</span>
+                    </div>
+                    <div class="kit-title">Primera Equipación</div>
+                    <p style="font-size: 0.85rem; color: #666; margin-top: 5px;">Las tradicionales franjas rojiblancas cargadas de historia.</p>
                 </div>
 
-                <!-- Dibujo 2: Banderín / Escudo simplificado -->
-                <div class="svg-card">
-                    <svg width="120" height="120" viewBox="0 0 100 100">
-                        <path d="M 20,10 L 80,10 L 80,60 C 80,85 50,95 50,95 C 50,95 20,85 20,60 Z" fill="#FFF" stroke="#EE2524" stroke-width="4"/>
-                        <path d="M 50,10 L 50,94" stroke="#EE2524" stroke-width="12"/>
-                        <circle cx="50" cy="35" r="12" fill="#111111"/>
-                    </svg>
-                    <p><strong>El Escudo</strong></p>
-                </div>
-
-                <!-- Dibujo 3: Balón de Fútbol -->
-                <div class="svg-card">
-                    <svg width="120" height="120" viewBox="0 0 100 100">
-                        <circle cx="50" cy="50" r="40" fill="#FFF" stroke="#111" stroke-width="3"/>
-                        <polygon points="50,35 40,43 44,55 56,55 60,43" fill="#111"/>
-                        <line x1="50" y1="35" x2="50" y2="10" stroke="#111" stroke-width="2"/>
-                        <line x1="40" y1="43" x2="18" y2="35" stroke="#111" stroke-width="2"/>
-                        <line x1="44" y1="55" x2="28" y2="75" stroke="#111" stroke-width="2"/>
-                        <line x1="56" y1="55" x2="72" y2="75" stroke="#111" stroke-width="2"/>
-                        <line x1="60" y1="43" x2="82" y2="35" stroke="#111" stroke-width="2"/>
-                    </svg>
-                    <p><strong>Tradición Futbolera</strong></p>
+                <div class="kit-card">
+                    <div class="kit-image-box second-kit">
+                        <span style="background: rgba(0,0,0,0.5); color: white; padding: 5px 10px; font-weight: bold; border-radius: 4px;">Segunda</span>
+                    </div>
+                    <div class="kit-title">Segunda Equipación</div>
+                    <p style="font-size: 0.85rem; color: #666; margin-top: 5px;">Diseño moderno con detalles en azul y rugido de león.</p>
                 </div>
 
             </div>
         </section>
 
-        <!-- SECCIÓN JUGADORES -->
-        <section id="jugadores">
-            <h2>Mejores Jugadores e Íconos</h2>
-            <div class="grid-jugadores">
+        <!-- PLANTILLA -->
+        <section id="plantilla">
+            <h2 class="section-title">Plantilla Destacada</h2>
+            <div class="grid-players">
                 
-                <div class="card-jugador">
-                    <img src="https://images.unsplash.com/photo-1508098682722-e99c43a406b2?auto=format&fit=crop&w=400&q=80" alt="Telmo Zarra">
-                    <h3>Telmo Zarra</h3>
-                    <p>Leyenda absoluta. 251 goles en Liga y 6 trofeos Pichichi.</p>
+                <div class="player-card">
+                    <img src="https://images.unsplash.com/photo-1518091043644-c1d4457512c6?auto=format&fit=crop&w=500&q=80" alt="Iñaki Williams">
+                    <div class="player-info">
+                        <span class="player-number">#9</span>
+                        <div class="player-name">Iñaki Williams</div>
+                        <div class="player-pos">Delantero</div>
+                    </div>
                 </div>
 
-                <div class="card-jugador">
-                    <img src="https://images.unsplash.com/photo-1518091043644-c1d4457512c6?auto=format&fit=crop&w=400&q=80" alt="José Ángel Iribar">
-                    <h3>José Ángel Iribar</h3>
-                    <p>"El Chopo". El portero más emblemático de la historia del club.</p>
+                <div class="player-card">
+                    <img src="https://images.unsplash.com/photo-1543326727-cf6c39e8f84c?auto=format&fit=crop&w=500&q=80" alt="Nico Williams">
+                    <div class="player-info">
+                        <span class="player-number">#10</span>
+                        <div class="player-name">Nico Williams</div>
+                        <div class="player-pos">Delantero</div>
+                    </div>
                 </div>
 
-                <div class="card-jugador">
-                    <img src="https://images.unsplash.com/photo-1574629810360-7efbbe195018?auto=format&fit=crop&w=400&q=80" alt="Aritz Aduriz">
-                    <h3>Aritz Aduriz</h3>
-                    <p>El goleador incombustible del siglo XXI. Rey de la chilena.</p>
+                <div class="player-card">
+                    <img src="https://images.unsplash.com/photo-1574629810360-7efbbe195018?auto=format&fit=crop&w=500&q=80" alt="Oihan Sancet">
+                    <div class="player-info">
+                        <span class="player-number">#8</span>
+                        <div class="player-name">Oihan Sancet</div>
+                        <div class="player-pos">Centrocampista</div>
+                    </div>
                 </div>
 
-                <div class="card-jugador">
-                    <img src="https://images.unsplash.com/photo-1522778119026-d647f0596c20?auto=format&fit=crop&w=400&q=80" alt="Iñaki Williams">
-                    <h3>Iñaki Williams</h3>
-                    <p>Récord histórico de partidos consecutivos jugados en la Liga.</p>
+                <div class="player-card">
+                    <img src="https://images.unsplash.com/photo-1560272564-669520747490?auto=format&fit=crop&w=500&q=80" alt="Unai Simón">
+                    <div class="player-info">
+                        <span class="player-number">#1</span>
+                        <div class="player-name">Unai Simón</div>
+                        <div class="player-pos">Portero</div>
+                    </div>
                 </div>
 
             </div>
         </section>
 
-        <!-- SECCIÓN GOLES -->
+        <!-- FOTOS -->
+        <section id="fotos">
+            <h2 class="section-title">Galería de San Mamés</h2>
+            <div class="gallery-grid">
+                <div class="gallery-item">
+                    <img src="https://images.unsplash.com/photo-1522778119026-d647f0596c20?auto=format&fit=crop&w=600&q=80" alt="Catedral">
+                    <div class="gallery-overlay">La Catedral - San Mamés</div>
+                </div>
+                <div class="gallery-item">
+                    <img src="https://images.unsplash.com/photo-1508098682722-e99c43a406b2?auto=format&fit=crop&w=600&q=80" alt="Afición">
+                    <div class="gallery-overlay">La Hinchada Rojiblanca</div>
+                </div>
+                <div class="gallery-item">
+                    <img src="https://images.unsplash.com/photo-1517466787929-bc90951d0974?auto=format&fit=crop&w=600&q=80" alt="Balón">
+                    <div class="gallery-overlay">Filosofía Única</div>
+                </div>
+            </div>
+        </section>
+
+        <!-- GOLES HISTÓRICOS Y RÉCORDS -->
         <section id="goles">
-            <h2>Goles Históricos e Inolvidables</h2>
-            
-            <div class="gol-item">
-                <img src="https://images.unsplash.com/photo-1517927033932-b3d18e61fb3a?auto=format&fit=crop&w=200&q=80" alt="Gol de Aduriz">
-                <div>
-                    <h3>La Chilena de Aduriz al Barcelona (2019)</h3>
-                    <p>En el minuto 89, recién entrado al campo, Aduriz remató de tijera/chilena espectacular para dar la victoria al Athletic en San Mamés.</p>
+            <h2 class="section-title">Goles Históricos</h2>
+            <div class="timeline">
+                <div class="timeline-item">
+                    <div class="timeline-date">1929</div>
+                    <p><strong>El primer gol en Liga:</strong> Anotado por Alfonso 'Cosa' en el partido inaugural frente al Real Sociedad.</p>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-date">1984</div>
+                    <p><strong>El gol del doblete:</strong> Endika marca el gol histórico en la final de Copa del Rey contra el FC Barcelona.</p>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-date">2015</div>
+                    <p><strong>El Hat-trick de Aduriz:</strong> Aritz Aduriz destroza al FC Barcelona en la ida de la Supercopa de España en San Mamés (4-0).</p>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-date">2024</div>
+                    <p><strong>La Copa 40 años después:</strong> Gol decisivo para levantar la 24ª Copa del Rey en Sevilla.</p>
                 </div>
             </div>
-
-            <div class="gol-item">
-                <img src="https://images.unsplash.com/photo-1551958219-acbc608c6377?auto=format&fit=crop&w=200&q=80" alt="Zarra Final Copa">
-                <div>
-                    <h3>El Gol de Zarra en la Final de Copa (1950)</h3>
-                    <p>Uno de los tantos decisivos que coronó al Athletic en su época dorada, consagrando a Zarra como el mayor artillero del país.</p>
-                </div>
-            </div>
-
-            <div class="gol-item">
-                <img src="https://images.unsplash.com/photo-1508098682722-e99c43a406b2?auto=format&fit=crop&w=200&q=80" alt="Ibai Gómez en Old Trafford">
-                <div>
-                    <h3>Iker Muniain y De Marcos en Old Trafford (2012)</h3>
-                    <p>En la histórica exhibición del Athletic de Bielsa superando 2-3 al Manchester United en su propio estadio.</p>
-                </div>
-            </div>
-
         </section>
 
-        <!-- SECCIÓN PALMARÉS -->
-        <section id="palmares">
-            <h2>Palmarés Destacado</h2>
-            <table>
+        <!-- DATOS Y ESTADÍSTICAS MASIVAS -->
+        <section id="datos">
+            <h2 class="section-title">Gran Banco de Datos</h2>
+            
+            <div class="stats-grid">
+                <div class="stat-box">
+                    <div class="stat-number">1898</div>
+                    <div class="stat-label">Año de Fundación</div>
+                </div>
+                <div class="stat-box">
+                    <div class="stat-number">8</div>
+                    <div class="stat-label">Ligas de España</div>
+                </div>
+                <div class="stat-box">
+                    <div class="stat-number">24</div>
+                    <div class="stat-label">Copas del Rey</div>
+                </div>
+                <div class="stat-box">
+                    <div class="stat-number">3</div>
+                    <div class="stat-label">Supercopas de España</div>
+                </div>
+            </div>
+
+            <h3 style="margin-bottom: 15px;">Jugadores con más partidos de la Historia</h3>
+            <table class="data-table">
                 <thead>
                     <tr>
-                        <th>Competición</th>
-                        <th>Títulos</th>
+                        <th>Posición</th>
+                        <th>Jugador</th>
+                        <th>Partidos</th>
+                        <th>Goles</th>
+                        <th>Periodo</th>
                     </tr>
                 </thead>
                 <tbody>
                     <tr>
-                        <td><strong>Campeonato de Liga</strong></td>
-                        <td>8</td>
+                        <td>1</td>
+                        <td>José Ángel Iribar</td>
+                        <td>614</td>
+                        <td>0</td>
+                        <td>1962 - 1980</td>
                     </tr>
                     <tr>
-                        <td><strong>Copa del Rey</strong></td>
-                        <td>24</td>
+                        <td>2</td>
+                        <td>Txetxu Rojo</td>
+                        <td>541</td>
+                        <td>67</td>
+                        <td>1965 - 1982</td>
                     </tr>
                     <tr>
-                        <td><strong>Supercopa de España</strong></td>
                         <td>3</td>
+                        <td>Iker Muniain</td>
+                        <td>560+</td>
+                        <td>76</td>
+                        <td>2009 - 2024</td>
+                    </tr>
+                    <tr>
+                        <td>4</td>
+                        <td>Oscar de Marcos</td>
+                        <td>530+</td>
+                        <td>38</td>
+                        <td>2009 - Presente</td>
+                    </tr>
+                    <tr>
+                        <td>5</td>
+                        <td>Andoni Iraola</td>
+                        <td>510</td>
+                        <td>38</td>
+                        <td>2003 - 2015</td>
                     </tr>
                 </tbody>
             </table>
+
+            <br><br>
+
+            <h3 style="margin-bottom: 15px;">Máximos Goleadores Históricos</h3>
+            <table class="data-table">
+                <thead>
+                    <tr>
+                        <th>Posición</th>
+                        <th>Jugador</th>
+                        <th>Goles</th>
+                        <th>Partidos</th>
+                        <th>Promedio</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>1</td>
+                        <td>Telmo Zarra</td>
+                        <td>335</td>
+                        <td>354</td>
+                        <td>0.95</td>
+                    </tr>
+                    <tr>
+                        <td>2</td>
+                        <td>Bata</td>
+                        <td>208</td>
+                        <td>208</td>
+                        <td>1.00</td>
+                    </tr>
+                    <tr>
+                        <td>3</td>
+                        <td>Dani Ruiz-Bazán</td>
+                        <td>199</td>
+                        <td>402</td>
+                        <td>0.49</td>
+                    </tr>
+                    <tr>
+                        <td>4</td>
+                        <td>Aritz Aduriz</td>
+                        <td>172</td>
+                        <td>407</td>
+                        <td>0.42</td>
+                    </tr>
+                    <tr>
+                        <td>5</td>
+                        <td>Eneko Arieta</td>
+                        <td>170</td>
+                        <td>302</td>
+                        <td>0.56</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <br><br>
+
+            <h3 id="records" style="margin-bottom: 15px;">Datos Curiosos y Récords Únicos</h3>
+            <ul style="background: white; padding: 20px 40px; border-radius: 8px; box-shadow: 0 2px 5px rgba(0,0,0,0.1);">
+                <li style="margin-bottom: 10px;"><strong>Permanencia Ininterrumpida:</strong> Junto al Real Madrid y al FC Barcelona, es uno de los tres únicos clubes que han disputado todas las temporadas de la Primera División de España.</li>
+                <li style="margin-bottom: 10px;"><strong>La Racha de Iñaki Williams:</strong> Jugó 251 partidos consecutivos de Liga, estableciendo un récord histórico absoluto en la competición española.</li>
+                <li style="margin-bottom: 10px;"><strong>Trofeo Pichichi:</strong> Zarra ganó 6 veces el trofeo de máximo goleador de la Liga, un récord nacional que permaneció imbatido durante décadas.</li>
+                <li style="margin-bottom: 10px;"><strong>La Filosofía:</strong> Solo juegan futbolistas formados en la cantera del club o en clubes del País Vasco, Navarra o el País Vasco Francés.</li>
+            </ul>
         </section>
 
     </div>
 
+    <!-- FOOTER -->
     <footer>
-        <p>&copy; Athletic Club de Bilbao - Página Tributo | Aupa Athletic!</p>
+        <p>&copy; 2026 Athletic Club Fan Page - Aupa Athletic! 🦁</p>
     </footer>
 
 </body>
+</html>
