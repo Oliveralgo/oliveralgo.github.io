@@ -1,11 +1,10 @@
-<!DOCTYPE html>
+html_content = '''<!DOCTYPE html>
 <html lang="es">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Athletic Club de Bilbao - Athletic Club Zurekin</title>
+    <title>Athletic Club de Bilbao - Official Fan Page</title>
     <style>
-        /* --- VARIABLES Y ESTILOS GLOBALES --- */
         :root {
             --red: #EE2524;
             --white: #FFFFFF;
@@ -89,11 +88,10 @@
 
         /* --- HERO SECTION --- */
         .hero {
-            background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), 
-                        url('https://images.unsplash.com/photo-1508098682722-e99c43a406b2?auto=format&fit=crop&w=1350&q=80');
+            background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url('https://images.unsplash.com/photo-1508098682722-e99c43a406b2?auto=format&fit=crop&w=1350&q=80');
             background-size: cover;
             background-position: center;
-            height: 60vh;
+            height: 50vh;
             display: flex;
             flex-direction: column;
             justify-content: center;
@@ -134,7 +132,7 @@
             text-transform: uppercase;
         }
 
-        /* --- SECCIÓN EQUIPACIÓN (CON EFECTOS) --- */
+        /* --- SECCIÓN EQUIPACIÓN --- */
         .kit-container {
             display: flex;
             justify-content: center;
@@ -169,19 +167,11 @@
             position: relative;
         }
 
-        /* Camiseta local (Rayas) */
         .first-kit {
-            background: repeating-linear-gradient(
-                90deg,
-                var(--red),
-                var(--red) 25px,
-                var(--white) 25px,
-                var(--white) 50px
-            );
+            background: repeating-linear-gradient(90deg, var(--red), var(--red) 25px, var(--white) 25px, var(--white) 50px);
             border: 1px solid #ccc;
         }
 
-        /* Camiseta visitante (Azul/León) */
         .second-kit {
             background: linear-gradient(135deg, #002B49 0%, #005596 100%);
             color: var(--white);
@@ -193,7 +183,7 @@
             margin-top: 10px;
         }
 
-        /* --- PLANTILLA DE JUGADORES --- */
+        /* --- PLANTILLA DE JUGADORES Y DORSALES --- */
         .grid-players {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
@@ -285,7 +275,47 @@
             opacity: 1;
         }
 
-        /* --- GOLES HISTÓRICOS Y RÉCORDS --- */
+        /* --- VÍDEOS DESTACADOS --- */
+        .video-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 20px;
+        }
+
+        .video-card {
+            background: var(--white);
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+        }
+
+        .video-wrapper {
+            position: relative;
+            padding-bottom: 56.25%; /* Aspect ratio 16:9 */
+            height: 0;
+            overflow: hidden;
+        }
+
+        .video-wrapper iframe {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            border: 0;
+        }
+
+        .video-info {
+            padding: 15px;
+        }
+
+        .video-title {
+            font-weight: bold;
+            font-size: 1rem;
+            margin-bottom: 5px;
+        }
+
+        /* --- GOLES HISTÓRICOS Y LÍNEA DE TIEMPO --- */
         .timeline {
             border-left: 4px solid var(--red);
             padding-left: 20px;
@@ -313,7 +343,7 @@
             color: var(--red);
         }
 
-        /* --- DATOS Y ESTADÍSTICAS (SECCIÓN MASIVA) --- */
+        /* --- DATOS, ESTADÍSTICAS Y TABLAS --- */
         .stats-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
@@ -390,27 +420,27 @@
         <nav>
             <ul>
                 <li><a href="#equipaciones">Equipación</a></li>
-                <li><a href="#plantilla">Plantilla</a></li>
+                <li><a href="#plantilla">Plantilla y Dorsales</a></li>
+                <li><a href="#fotos">Galería</a></li>
+                <li><a href="#videos">Vídeos</a></li>
                 <li><a href="#goles">Goles</a></li>
-                <li><a href="#records">Récords</a></li>
-                <li><a href="#datos">Datos</a></li>
+                <li><a href="#datos">Datos y Récords</a></li>
             </ul>
         </nav>
     </header>
 
     <!-- HERO SECTION -->
     <div class="hero">
-        <h2>Gure Estiloa, Gure Història</h2>
+        <h2>Gure Estiloa, Gure Historia</h2>
         <p>"Con cantera y afición, no hace falta importación"</p>
     </div>
 
     <div class="container">
 
-        <!-- EQUIPACIONES CON EFECTOS -->
+        <!-- EQUIPACIONES OFICIALES -->
         <section id="equipaciones">
             <h2 class="section-title">Equipaciones Oficiales</h2>
             <div class="kit-container">
-                
                 <div class="kit-card">
                     <div class="kit-image-box first-kit">
                         <span style="background: white; padding: 5px 10px; font-weight: bold; border-radius: 4px;">Primera</span>
@@ -418,50 +448,20 @@
                     <div class="kit-title">Primera Equipación</div>
                     <p style="font-size: 0.85rem; color: #666; margin-top: 5px;">Las tradicionales franjas rojiblancas cargadas de historia.</p>
                 </div>
-
                 <div class="kit-card">
                     <div class="kit-image-box second-kit">
                         <span style="background: rgba(0,0,0,0.5); color: white; padding: 5px 10px; font-weight: bold; border-radius: 4px;">Segunda</span>
                     </div>
                     <div class="kit-title">Segunda Equipación</div>
-                    <p style="font-size: 0.85rem; color: #666; margin-top: 5px;">Diseño moderno con detalles en azul y rugido de león.</p>
+                    <p style="font-size: 0.85rem; color: #666; margin-top: 5px;">Diseño moderno con tonos azulados y rugido de león.</p>
                 </div>
-
             </div>
         </section>
 
-        <!-- PLANTILLA -->
+        <!-- PLANTILLA Y DORSALES -->
         <section id="plantilla">
-            <h2 class="section-title">Plantilla Destacada</h2>
+            <h2 class="section-title">Plantilla y Dorsales Destacados</h2>
             <div class="grid-players">
-                
-                <div class="player-card">
-                    <img src="https://images.unsplash.com/photo-1518091043644-c1d4457512c6?auto=format&fit=crop&w=500&q=80" alt="Iñaki Williams">
-                    <div class="player-info">
-                        <span class="player-number">#9</span>
-                        <div class="player-name">Iñaki Williams</div>
-                        <div class="player-pos">Delantero</div>
-                    </div>
-                </div>
-
-                <div class="player-card">
-                    <img src="https://images.unsplash.com/photo-1543326727-cf6c39e8f84c?auto=format&fit=crop&w=500&q=80" alt="Nico Williams">
-                    <div class="player-info">
-                        <span class="player-number">#10</span>
-                        <div class="player-name">Nico Williams</div>
-                        <div class="player-pos">Delantero</div>
-                    </div>
-                </div>
-
-                <div class="player-card">
-                    <img src="https://images.unsplash.com/photo-1574629810360-7efbbe195018?auto=format&fit=crop&w=500&q=80" alt="Oihan Sancet">
-                    <div class="player-info">
-                        <span class="player-number">#8</span>
-                        <div class="player-name">Oihan Sancet</div>
-                        <div class="player-pos">Centrocampista</div>
-                    </div>
-                </div>
-
                 <div class="player-card">
                     <img src="https://images.unsplash.com/photo-1560272564-669520747490?auto=format&fit=crop&w=500&q=80" alt="Unai Simón">
                     <div class="player-info">
@@ -470,16 +470,39 @@
                         <div class="player-pos">Portero</div>
                     </div>
                 </div>
-
+                <div class="player-card">
+                    <img src="https://images.unsplash.com/photo-1574629810360-7efbbe195018?auto=format&fit=crop&w=500&q=80" alt="Oihan Sancet">
+                    <div class="player-info">
+                        <span class="player-number">#8</span>
+                        <div class="player-name">Oihan Sancet</div>
+                        <div class="player-pos">Centrocampista</div>
+                    </div>
+                </div>
+                <div class="player-card">
+                    <img src="https://images.unsplash.com/photo-1518091043644-c1d4457512c6?auto=format&fit=crop&w=500&q=80" alt="Iñaki Williams">
+                    <div class="player-info">
+                        <span class="player-number">#9</span>
+                        <div class="player-name">Iñaki Williams</div>
+                        <div class="player-pos">Delantero</div>
+                    </div>
+                </div>
+                <div class="player-card">
+                    <img src="https://images.unsplash.com/photo-1543326727-cf6c39e8f84c?auto=format&fit=crop&w=500&q=80" alt="Nico Williams">
+                    <div class="player-info">
+                        <span class="player-number">#10</span>
+                        <div class="player-name">Nico Williams</div>
+                        <div class="player-pos">Delantero</div>
+                    </div>
+                </div>
             </div>
         </section>
 
-        <!-- FOTOS -->
+        <!-- GALERÍA DE FOTOS -->
         <section id="fotos">
             <h2 class="section-title">Galería de San Mamés</h2>
             <div class="gallery-grid">
                 <div class="gallery-item">
-                    <img src="https://images.unsplash.com/photo-1522778119026-d647f0596c20?auto=format&fit=crop&w=600&q=80" alt="Catedral">
+                    <img src="https://images.unsplash.com/photo-1522778119026-d647f0596c20?auto=format&fit=crop&w=600&q=80" alt="San Mamés">
                     <div class="gallery-overlay">La Catedral - San Mamés</div>
                 </div>
                 <div class="gallery-item">
@@ -487,19 +510,44 @@
                     <div class="gallery-overlay">La Hinchada Rojiblanca</div>
                 </div>
                 <div class="gallery-item">
-                    <img src="https://images.unsplash.com/photo-1517466787929-bc90951d0974?auto=format&fit=crop&w=600&q=80" alt="Balón">
+                    <img src="https://images.unsplash.com/photo-1517466787929-bc90951d0974?auto=format&fit=crop&w=600&q=80" alt="Balón de Fútbol">
                     <div class="gallery-overlay">Filosofía Única</div>
                 </div>
             </div>
         </section>
 
-        <!-- GOLES HISTÓRICOS Y RÉCORDS -->
+        <!-- SECCIÓN DE VÍDEOS -->
+        <section id="videos">
+            <h2 class="section-title">Vídeos y Momentos Inolvidables</h2>
+            <div class="video-grid">
+                <div class="video-card">
+                    <div class="video-wrapper">
+                        <iframe src="https://www.youtube.com/embed/6qeHA9sKi5o" title="Unai Simón Best Saves" allowfullscreen></iframe>
+                    </div>
+                    <div class="video-info">
+                        <div class="video-title">Unai Simón - Top Paradas e Intervenciones</div>
+                        <p style="font-size: 0.85rem; color: #666;">Las mejores estiradas y reflejos del guardameta del Athletic Club y la Selección.</p>
+                    </div>
+                </div>
+                <div class="video-card">
+                    <div class="video-wrapper">
+                        <iframe src="https://www.youtube.com/embed/HdzDk0Kv63E" title="Copa del Rey 2024" allowfullscreen></iframe>
+                    </div>
+                    <div class="video-info">
+                        <div class="video-title">La 24ª Copa del Rey</div>
+                        <p style="font-size: 0.85rem; color: #666;">Resumen y emoción de la Copa conquistada 40 años después.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- GOLES HISTÓRICOS -->
         <section id="goles">
             <h2 class="section-title">Goles Históricos</h2>
             <div class="timeline">
                 <div class="timeline-item">
                     <div class="timeline-date">1929</div>
-                    <p><strong>El primer gol en Liga:</strong> Anotado por Alfonso 'Cosa' en el partido inaugural frente al Real Sociedad.</p>
+                    <p><strong>El primer gol en Liga:</strong> Anotado por Alfonso 'Cosa' en el partido inaugural frente a la Real Sociedad.</p>
                 </div>
                 <div class="timeline-item">
                     <div class="timeline-date">1984</div>
@@ -516,9 +564,9 @@
             </div>
         </section>
 
-        <!-- DATOS Y ESTADÍSTICAS MASIVAS -->
+        <!-- DATOS, ESTADÍSTICAS Y RÉCORDS -->
         <section id="datos">
-            <h2 class="section-title">Gran Banco de Datos</h2>
+            <h2 class="section-title">Gran Banco de Datos y Récords</h2>
             
             <div class="stats-grid">
                 <div class="stat-box">
@@ -538,58 +586,6 @@
                     <div class="stat-label">Supercopas de España</div>
                 </div>
             </div>
-
-            <h3 style="margin-bottom: 15px;">Jugadores con más partidos de la Historia</h3>
-            <table class="data-table">
-                <thead>
-                    <tr>
-                        <th>Posición</th>
-                        <th>Jugador</th>
-                        <th>Partidos</th>
-                        <th>Goles</th>
-                        <th>Periodo</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td>1</td>
-                        <td>José Ángel Iribar</td>
-                        <td>614</td>
-                        <td>0</td>
-                        <td>1962 - 1980</td>
-                    </tr>
-                    <tr>
-                        <td>2</td>
-                        <td>Txetxu Rojo</td>
-                        <td>541</td>
-                        <td>67</td>
-                        <td>1965 - 1982</td>
-                    </tr>
-                    <tr>
-                        <td>3</td>
-                        <td>Iker Muniain</td>
-                        <td>560+</td>
-                        <td>76</td>
-                        <td>2009 - 2024</td>
-                    </tr>
-                    <tr>
-                        <td>4</td>
-                        <td>Oscar de Marcos</td>
-                        <td>530+</td>
-                        <td>38</td>
-                        <td>2009 - Presente</td>
-                    </tr>
-                    <tr>
-                        <td>5</td>
-                        <td>Andoni Iraola</td>
-                        <td>510</td>
-                        <td>38</td>
-                        <td>2003 - 2015</td>
-                    </tr>
-                </tbody>
-            </table>
-
-            <br><br>
 
             <h3 style="margin-bottom: 15px;">Máximos Goleadores Históricos</h3>
             <table class="data-table">
@@ -643,12 +639,64 @@
 
             <br><br>
 
-            <h3 id="records" style="margin-bottom: 15px;">Datos Curiosos y Récords Únicos</h3>
-            <ul style="background: white; padding: 20px 40px; border-radius: 8px; box-shadow: 0 2px 5px rgba(0,0,0,0.1);">
+            <h3 style="margin-bottom: 15px;">Jugadores con más Partidos Históricos</h3>
+            <table class="data-table">
+                <thead>
+                    <tr>
+                        <th>Posición</th>
+                        <th>Jugador</th>
+                        <th>Partidos</th>
+                        <th>Goles</th>
+                        <th>Periodo</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>1</td>
+                        <td>José Ángel Iribar</td>
+                        <td>614</td>
+                        <td>0</td>
+                        <td>1962 - 1980</td>
+                    </tr>
+                    <tr>
+                        <td>2</td>
+                        <td>Txetxu Rojo</td>
+                        <td>541</td>
+                        <td>67</td>
+                        <td>1965 - 1982</td>
+                    </tr>
+                    <tr>
+                        <td>3</td>
+                        <td>Iker Muniain</td>
+                        <td>560</td>
+                        <td>76</td>
+                        <td>2009 - 2024</td>
+                    </tr>
+                    <tr>
+                        <td>4</td>
+                        <td>Oscar de Marcos</td>
+                        <td>530+</td>
+                        <td>38</td>
+                        <td>2009 - Presente</td>
+                    </tr>
+                    <tr>
+                        <td>5</td>
+                        <td>Andoni Iraola</td>
+                        <td>510</td>
+                        <td>38</td>
+                        <td>2003 - 2015</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <br><br>
+
+            <h3 style="margin-bottom: 15px;">Datos Curiosos y Récords Únicos</h3>
+            <ul style="background: white; padding: 20px 40px; border-radius: 8px; box-shadow: 0 2px 5px rgba(0,0,0,0.1); list-style-type: disc;">
                 <li style="margin-bottom: 10px;"><strong>Permanencia Ininterrumpida:</strong> Junto al Real Madrid y al FC Barcelona, es uno de los tres únicos clubes que han disputado todas las temporadas de la Primera División de España.</li>
                 <li style="margin-bottom: 10px;"><strong>La Racha de Iñaki Williams:</strong> Jugó 251 partidos consecutivos de Liga, estableciendo un récord histórico absoluto en la competición española.</li>
-                <li style="margin-bottom: 10px;"><strong>Trofeo Pichichi:</strong> Zarra ganó 6 veces el trofeo de máximo goleador de la Liga, un récord nacional que permaneció imbatido durante décadas.</li>
-                <li style="margin-bottom: 10px;"><strong>La Filosofía:</strong> Solo juegan futbolistas formados en la cantera del club o en clubes del País Vasco, Navarra o el País Vasco Francés.</li>
+                <li style="margin-bottom: 10px;"><strong>Trofeo Pichichi:</strong> Telmo Zarra ganó 6 veces el trofeo de máximo goleador de la Liga, un récord nacional que permaneció imbatido durante décadas.</li>
+                <li style="margin-bottom: 10px;"><strong>La Filosofía Única:</strong> Solo juegan futbolistas formados en la cantera del club o en clubes del País Vasco, Navarra o el País Vasco Francés.</li>
             </ul>
         </section>
 
@@ -661,3 +709,9 @@
 
 </body>
 </html>
+'''
+
+with open("athletic_club_page.html", "w", encoding="utf-8") as f:
+    f.write(html_content)
+
+print("Archivo HTML creado con éxito: athletic_club_page.html")
