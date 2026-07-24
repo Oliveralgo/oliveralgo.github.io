@@ -2,82 +2,341 @@
 <html lang="es">
 <head>
     <meta charset="UTF-8">
-    <title>Gran Torneo de Ajedrez de Oliver</title>
-    <link rel="stylesheet" href="styles.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Athletic Club de Bilbao - Geuria!</title>
+    <style>
+        :root {
+            --red: #EE2524;
+            --white: #FFFFFF;
+            --black: #111111;
+            --grey: #F4F4F4;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: var(--grey);
+            color: var(--black);
+        }
+
+        header {
+            background-color: var(--red);
+            color: var(--white);
+            text-align: center;
+            padding: 2rem 1rem;
+            border-bottom: 5px solid var(--black);
+        }
+
+        header h1 {
+            margin: 0;
+            font-size: 2.8rem;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+        }
+
+        header p {
+            margin-top: 0.5rem;
+            font-style: italic;
+            font-size: 1.2rem;
+        }
+
+        nav {
+            background-color: var(--black);
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            padding: 10px;
+        }
+
+        nav a {
+            color: var(--white);
+            text-decoration: none;
+            font-weight: bold;
+            transition: color 0.3s;
+        }
+
+        nav a:hover {
+            color: var(--red);
+        }
+
+        .container {
+            max-width: 1000px;
+            margin: 20px auto;
+            padding: 0 20px;
+        }
+
+        section {
+            background: var(--white);
+            padding: 25px;
+            margin-bottom: 25px;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+
+        h2 {
+            color: var(--red);
+            border-bottom: 2px solid var(--red);
+            padding-bottom: 8px;
+            margin-top: 0;
+        }
+
+        /* Dibujos SVG */
+        .illustrations {
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 20px;
+            margin: 20px 0;
+        }
+
+        .svg-card {
+            text-align: center;
+        }
+
+        /* Grid de Jugadores */
+        .grid-jugadores {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px;
+            margin-top: 15px;
+        }
+
+        .card-jugador {
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            overflow: hidden;
+            text-align: center;
+            transition: transform 0.2s;
+        }
+
+        .card-jugador:hover {
+            transform: translateY(-5px);
+        }
+
+        .card-jugador img {
+            width: 100%;
+            height: 220px;
+            object-fit: cover;
+        }
+
+        .card-jugador h3 {
+            margin: 10px 0 5px;
+            color: var(--black);
+        }
+
+        .card-jugador p {
+            font-size: 0.9rem;
+            color: #666;
+            margin-bottom: 10px;
+        }
+
+        /* Lista de Goles */
+        .gol-item {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            margin-bottom: 15px;
+            background: #fafafa;
+            padding: 10px;
+            border-left: 4px solid var(--red);
+        }
+
+        .gol-item img {
+            width: 120px;
+            height: 80px;
+            object-fit: cover;
+            border-radius: 4px;
+        }
+
+        /* Tabla de Palmarés */
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 10px;
+        }
+
+        th, td {
+            padding: 10px;
+            text-align: left;
+            border-bottom: 1px solid #ddd;
+        }
+
+        th {
+            background-color: var(--red);
+            color: var(--white);
+        }
+
+        footer {
+            text-align: center;
+            padding: 15px;
+            background-color: var(--black);
+            color: var(--white);
+            font-size: 0.9rem;
+        }
+    </style>
     <script src="script.js" defer></script>
 </head>
 <body>
 
-    <h1>🏆 Gran Torneo de Ajedrez 🏆</h1>
-    
-    <hr>
+    <header>
+        <h1>Athletic Club</h1>
+        <p>"Con cantera y afición, no hace falta importación"</p>
+    </header>
 
-    <div class="info-box">
-        <h2>📅 Detalles del Evento</h2>
-        <p><strong>Organizador:</strong> Oliver</p>
-        <p><strong>Fecha:</strong> El 17 y 18 de Octubre</p>
-        <p><strong>Lugar:</strong> Bernuy de porreros </p>
-    </div>
+    <nav>
+        <a href="#dibujos">Símbolos</a>
+        <a href="#jugadores">Leyendas</a>
+        <a href="#goles">Goles Históricos</a>
+        <a href="#palmares">Palmarés</a>
+    </nav>
 
-    <div class="info-box">
-        <h2>🎁 Premios</h2>
-        <ul>
-            <li>🥇 <strong>1º Puesto:</strong> Trofeo y 50 euros </li>
-            <li>🥈 <strong>2º Puesto:</strong> Trofeo </li>
-            <li>🥉 <strong>3º Puesto:</strong> Trofeo </li>
-        </ul>
+    <div class="container">
+
+        <!-- SECCIÓN DIBUJOS / ILUSTRACIONES SVG -->
+        <section id="dibujos">
+            <h2>Símbolos del Club (Dibujos Vectoriales)</h2>
+            <div class="illustrations">
+                
+                <!-- Dibujo 1: Camiseta Rojiblanca -->
+                <div class="svg-card">
+                    <svg width="120" height="120" viewBox="0 0 100 100">
+                        <!-- Cuerpo Camiseta -->
+                        <path d="M 30,20 L 40,10 L 60,10 L 70,20 L 85,30 L 75,45 L 70,40 L 70,90 L 30,90 L 30,40 L 25,45 L 15,30 Z" fill="#EE2524" stroke="#111" stroke-width="2"/>
+                        <!-- Franjas Blancas -->
+                        <rect x="38" y="11" width="8" height="78" fill="#FFF"/>
+                        <rect x="54" y="11" width="8" height="78" fill="#FFF"/>
+                        <!-- Cuello -->
+                        <path d="M 40,10 Q 50,20 60,10" fill="none" stroke="#111" stroke-width="3"/>
+                    </svg>
+                    <p><strong>La Camiseta</strong></p>
+                </div>
+
+                <!-- Dibujo 2: Banderín / Escudo simplificado -->
+                <div class="svg-card">
+                    <svg width="120" height="120" viewBox="0 0 100 100">
+                        <path d="M 20,10 L 80,10 L 80,60 C 80,85 50,95 50,95 C 50,95 20,85 20,60 Z" fill="#FFF" stroke="#EE2524" stroke-width="4"/>
+                        <path d="M 50,10 L 50,94" stroke="#EE2524" stroke-width="12"/>
+                        <circle cx="50" cy="35" r="12" fill="#111111"/>
+                    </svg>
+                    <p><strong>El Escudo</strong></p>
+                </div>
+
+                <!-- Dibujo 3: Balón de Fútbol -->
+                <div class="svg-card">
+                    <svg width="120" height="120" viewBox="0 0 100 100">
+                        <circle cx="50" cy="50" r="40" fill="#FFF" stroke="#111" stroke-width="3"/>
+                        <polygon points="50,35 40,43 44,55 56,55 60,43" fill="#111"/>
+                        <line x1="50" y1="35" x2="50" y2="10" stroke="#111" stroke-width="2"/>
+                        <line x1="40" y1="43" x2="18" y2="35" stroke="#111" stroke-width="2"/>
+                        <line x1="44" y1="55" x2="28" y2="75" stroke="#111" stroke-width="2"/>
+                        <line x1="56" y1="55" x2="72" y2="75" stroke="#111" stroke-width="2"/>
+                        <line x1="60" y1="43" x2="82" y2="35" stroke="#111" stroke-width="2"/>
+                    </svg>
+                    <p><strong>Tradición Futbolera</strong></p>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- SECCIÓN JUGADORES -->
+        <section id="jugadores">
+            <h2>Mejores Jugadores e Íconos</h2>
+            <div class="grid-jugadores">
+                
+                <div class="card-jugador">
+                    <img src="https://images.unsplash.com/photo-1508098682722-e99c43a406b2?auto=format&fit=crop&w=400&q=80" alt="Telmo Zarra">
+                    <h3>Telmo Zarra</h3>
+                    <p>Leyenda absoluta. 251 goles en Liga y 6 trofeos Pichichi.</p>
+                </div>
+
+                <div class="card-jugador">
+                    <img src="https://images.unsplash.com/photo-1518091043644-c1d4457512c6?auto=format&fit=crop&w=400&q=80" alt="José Ángel Iribar">
+                    <h3>José Ángel Iribar</h3>
+                    <p>"El Chopo". El portero más emblemático de la historia del club.</p>
+                </div>
+
+                <div class="card-jugador">
+                    <img src="https://images.unsplash.com/photo-1574629810360-7efbbe195018?auto=format&fit=crop&w=400&q=80" alt="Aritz Aduriz">
+                    <h3>Aritz Aduriz</h3>
+                    <p>El goleador incombustible del siglo XXI. Rey de la chilena.</p>
+                </div>
+
+                <div class="card-jugador">
+                    <img src="https://images.unsplash.com/photo-1522778119026-d647f0596c20?auto=format&fit=crop&w=400&q=80" alt="Iñaki Williams">
+                    <h3>Iñaki Williams</h3>
+                    <p>Récord histórico de partidos consecutivos jugados en la Liga.</p>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- SECCIÓN GOLES -->
+        <section id="goles">
+            <h2>Goles Históricos e Inolvidables</h2>
+            
+            <div class="gol-item">
+                <img src="https://images.unsplash.com/photo-1517927033932-b3d18e61fb3a?auto=format&fit=crop&w=200&q=80" alt="Gol de Aduriz">
+                <div>
+                    <h3>La Chilena de Aduriz al Barcelona (2019)</h3>
+                    <p>En el minuto 89, recién entrado al campo, Aduriz remató de tijera/chilena espectacular para dar la victoria al Athletic en San Mamés.</p>
+                </div>
+            </div>
+
+            <div class="gol-item">
+                <img src="https://images.unsplash.com/photo-1551958219-acbc608c6377?auto=format&fit=crop&w=200&q=80" alt="Zarra Final Copa">
+                <div>
+                    <h3>El Gol de Zarra en la Final de Copa (1950)</h3>
+                    <p>Uno de los tantos decisivos que coronó al Athletic en su época dorada, consagrando a Zarra como el mayor artillero del país.</p>
+                </div>
+            </div>
+
+            <div class="gol-item">
+                <img src="https://images.unsplash.com/photo-1508098682722-e99c43a406b2?auto=format&fit=crop&w=200&q=80" alt="Ibai Gómez en Old Trafford">
+                <div>
+                    <h3>Iker Muniain y De Marcos en Old Trafford (2012)</h3>
+                    <p>En la histórica exhibición del Athletic de Bielsa superando 2-3 al Manchester United en su propio estadio.</p>
+                </div>
 
         <button id="botonInscribirse" type="button" class="img-container" onclick="Boton()">
             <img src="img/botón-rojo-85651834.webp" alt="Inscribirse">
         </button>
-    </div>
-
-    <div class="info-box">
-        <h2>📊 Tabla de Posiciones</h2>
-        <p>Aquí puedes ir anotando los puntos de los jugadores (Ganar = 1 punto, Tablas = 0.5 puntos, Perder = 0 puntos).</p>
-        
-        <table>
-            <tr>
-                <th>Posición</th>
-                <th>Jugador</th>
-                <th>Puntos</th>
-            </tr>
-            <tr>
-                <td>1º</td>
-                <td>Jugador A</td>
-                <td>3.0</td>
-            </tr>
-            <tr>
-                <td>2º</td>
-                <td>Jugador B</td>
-                <td>2.0</td>
-            </tr>
-            <tr>
-                <td>3º</td>
-                <td>Jugador C</td>
-                <td>0.5</td>
-            </tr>
-        </table>
-    </div>
-
-    <div class="info-box">
-        <h2>📌 Reglas del Torneo</h2>
-        <ul>
-            <li><a href="game.html">Accede al torneo</a></li>
-        </ul>
-    </div>
-<div class="info-box">
-        <h2>📌 Clasificacion del torneo</h2>
-        <ul>
-            <li><a href="clasification.html">Accede a la puntuacion</a></li>
-        </ul>
-   
-</div>
-
-</html
-div class="info-box">
-        <h2>📌Mas Informacion</h2>
-        <ul>
-            <li><a href="information.html">Accede al siguiente Torneo</a></li>
             </div>
-    </body>
+
+        </section>
+
+        <!-- SECCIÓN PALMARÉS -->
+        <section id="palmares">
+            <h2>Palmarés Destacado</h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Competición</th>
+                        <th>Títulos</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><strong>Campeonato de Liga</strong></td>
+                        <td>8</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Copa del Rey</strong></td>
+                        <td>24</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Supercopa de España</strong></td>
+                        <td>3</td>
+                    </tr>
+                </tbody>
+            </table>
+        </section>
+
+    </div>
+
+    <footer>
+        <p>&copy; Athletic Club de Bilbao - Página Tributo | Aupa Athletic!</p>
+    </footer>
+
+</body>
